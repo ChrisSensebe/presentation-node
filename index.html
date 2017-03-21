@@ -28,104 +28,82 @@
 					<img src="img/nodejs-new-pantone-white.png" alt="" class="stretch">
 				</section>
 				<section>
-					<h1>Présentation</h1>
+					<h1>Christophe Sensebé</h1>
 					<ul>
-						<li>Christophe Sensebé</li>
 						<li>Développeur web</li>
 						<li>Je travaille à FMGS concept</li>
-						<li>Je prépare un titre pro CDI au CEFIM</li>
-						<li>J'ai appris à programmer avec node.js et python</li>
+						<li>Je prépare un titre de concepteur developeur informatique au CEFIM</li>
+						<li>J'ai en grande partie appris a programmer en utilisant node.js</li>
 					</ul>
 					<aside class="notes">
-						<p>Je vais vous présenter une introduction sur node.js, en vous présentant la plateforme, son fonctionnement, Pour quoi elle à été concue, ce qu'on peut faire avec, Et des ressources si vous souhaiter vous y mettre.</p>
+						<p>je vais vous présenter la plateforme, son fonctionnement, ce qu'on peut faire avec et quelques ressources qui m'on servi à apprendre à m'en servir</p>
 					</aside>
 				</section>
 				<section>
 					<h1>Qu'est ce que c'est</h1>
 				</section>
 				<section>
-					<p>Plateforme logicielle libre, qui fourni un environement d'éxécution javascript coté serveur</p>
-					<p>Node.js utilise un modèle d'I/O évènementielle non bloquant, capable de servir un grand nombre de connections concurrentes</p>
+					<p>Plateforme logicielle libre, permettant d'éxécuter du javascript coté serveur.</p>
+					<img src="/img/Ryan_Dahl.jpg" alt="" class="stretch">
+					<p>crée en 2009, par Ryan Dahl, en critique à l'incapacité d'un serveur apache à gérer un très grand nombre de requêtes concurentes et à son modèle d'i/o dit bloquant. Dans le but de créer une plateforme d'i/o stable et performante.</p>
 				</section>
 				<section>
-					<p>Node.js à été créé pour fournir une plateforme d'I/O stable et performante.</p>
+					<h2>I/O bloquante</h2>
+					<img src="/img/blockingIO.jpg" alt="" class="stretch">
+					<aside class="notes">
+						Ici on le modèle de code sequenciel dit bloquant, toute opération bloquante (appel à une base de donnée, au réseau bloque l'exécution du code sité après).
+						La plupart du temps ce problème est contourné en créant un nouveau thread pour chaque requête, ce qui a un coût non négligeable.
+					</aside>
 				</section>
 				<section>
-					<section><h2>En combinant:</h2></section>
+					<h2>I/O non bloquante</h2>
+					<img src="/img/nonBlockingIO.jpg" alt="" class="stretch">
+					<aside class="notes">
+						Dans le cas de node.js, on enregistre l'opération à effectuer, sa résolution est déléguée à un pool de threads deja instanciés, une fois celle-ci effectuée une fonction de rappel est appellée pour prendre en charge la suite des opérations. le thread principal reste libre, ce qui permet de prendre en charge un nombre de requêtes concurentes plus élevé.
+					</aside>
+				</section>
+				<section>
+					<section><h2>Node.js est construit en combinant</h2></section>
 					<section>
 						<img src="/img/v8-logo.png" alt="" class="stretch">
 						<p>Le moteur javascript v8 de chrome</p>
 					</section>
 					<section>
 						<img src="/img/libuvLogo.png" alt="" class="stretch">
-						<p>Libuv une bibliothèque C multi plateforme chargée de la gestion de la boucle d'évènements, d'un pool de threads et de la résolution asynchrone des opérations d'I/O.</p>
+						<p>Libuv une bibliothèque C multi plateforme chargée de la gestion de la boucle d'évènements, du pool de threads et de la résolution asynchrone des opérations d'I/O.</p>
 					</section>
 					<section>
-						<img src="/img/event-loop.jpg" alt="" class="stretch">
-						<p>La boucle d'évènements de node.js</p>
-						<aside class="notes">
-							<p>De façon simplifiée</p>
-							<p>La boucle d'évènements enregistre les évènements, délègue leur résolution à un pool de threads, Une la tache acomplie, une fonction de rappel est exécutée avec le résultat de l'opération</p>
-						</aside>
+						<img src="/img/npmLogo.png" alt="" class="stretch">
+						<p>Node.js intègre un gestionnaire de paquets NPM qui permet de consommer et de distribuer les modules javascripts présents sur ses registres</p>
 					</section>
 				</section>
 				<section>
-					<p>De base node fourni une API d'assez bas niveau, avec des modules pour interagir avec le système de fichiers, le reseau, la manipulation de données binaires, des fonctions cryptographiques...</p>
-					<p>Il est d'étendre les fonctionalitées de la plateforme via des add-on écris en C ou C++</p>
-					<a href="https://nodejs.org/api/">https://nodejs.org/api/</a>
-					<aside class="notes">La doc de node est diponible à l'adresse suivante</aside>
-				</section>
-				<section>
-					<img src="/img/npmLogo.png" alt="" class="stretch">
-					<p>Node.js fournit un gestionnaire de paquets. qui permet: d'importer, de publier des modules et bibliothèques supplémentaires ainsi que de gérer les dépendances d'un projet.</p>
-				</section>
-				<section>
-					<p>Node.js est disponible pour Linux, MacOS, Windows</p>
+					<p>Node.js est disponible pour les principaux systèmes d'exploitation, dont Linux, MacOS et Windows</p>
 					<p>Les applications Node.js sont écrites en javascript ou n'importe quel language transpilable en javascript (CoffeScript, Dart, TypeScript...)</p>
 				</section>
-				<aside class="notes">Aussi images docker, SunOs...</aside>
 				<section>
 					<h1>Comment ça marche</h1>
 				</section>
 				<section>
-					<section>
-						<h2>Installation</h2>
-						<img src="/img/Node%20install.png" alt="" class="stretch">
-						<p>Récupération d'un installeur ou des fichiers exécutables depuis le site officiel</p>
-						<a href="https://nodejs.org/en/download/">https://nodejs.org/en/download/</a>
-					</section>
-					<section>
-						<h2>Utilisation de nvm</h2>
-						<img src="/img/nvm.png" alt="" class="stretch">
-						<a href="https://github.com/creationix/nvm">https://github.com/creationix/nvm</a>
-						<aside class="notes">Nvm est un outil en ligne de commande qui permet d'installer et de gérer plusieurs versions de node.js sur un même système.</aside>
-					</section>
+					<p>De base node fourni une API d'assez bas niveau, avec des modules pour interagir avec le système de fichiers, le reseau, la manipulation de données binaires, des fonctions cryptographiques...</p>
+					<p>Qu'il est possible d'étendre via des add-on écris en C ou C++</p>
 				</section>
 				<section>
 					<section>
 						<h2>Fonctionnement</h2>
 						<img src="/img/nonBlockingIO.jpg" alt="" class="stretch">
 						<aside class="notes">
-							<ul>
-								<li>Les requêtes qui arrivent sont enregistrées par la boucle d'évènements</li>
-								<li>l'opération à éxécuter est déléguée au pool de threads géré par libuv</li>
-								<li>Une fois l'opération terminée la fonction de rappel enregistrée avec l'opération est éxécutée</li>
-							</ul>
-							<p>De part la nature mono thread du javascript, toute opération bloquante, bloque complètement la boucle d'évènements</p>
+							<p>Pour rappel le mode de fonctionnement de node.js</p>
+							<p>Le programme javascript s'exéute sur un seul thread et pour ne pas bloquer la boucle d'évènements, toute fonction qui réalise une opération d'i/o doit utiliser un callback afin de ne pas bloquer le thread principal.</p>
 						</aside>
-					</section>
-					<section>
-						<h2>Modèle d'I/O classique</h2>
-						<img src="/img/blockingIO.jpg" alt="" class="stretch">
-						<aside class="notes">A comparer au modèle d'I/O plus classique ou pour chaque requête un nouveau thread est crée</aside>
-					</section>
-					<section>
-						<p>Afin de ne pas bloquer le thread principal, node.js fourni une API principalement basée sur les fonctons de rappel (callbacks).</p>
 					</section>
 				</section>
 				<section>
 					<section>
 						<h2>Exemples</h2>
+						<aside class="notes">
+							Deux exemples pour illuster ce mode de fonctionnement
+						</aside>
 					</section>
 					<section>
 						<h3>Lecture d'un fichier</h3>
@@ -139,14 +117,16 @@
 									return;
 								}
 								console.log(data);
-							}
+							});
 						</code>
 					</pre>
 						<aside class="notes">
 							<ul>
-								<li>On commence par importer le module fs (filesystem)</li>
-								<li>on fait appel à la fonction readFile qui prend en paramètres le chemin du fichier, l'encodage et une fonction de rappel</li>
-								<li>le callback prend en paramètre un objet erreur, et en second le contenu du fichier</li>
+								<li>j'utilise la fonction require, fournie par node pour importer le module fs (pour fileSystem)</li>
+								<li>Je fais appel à la fonction readfile du module</li>
+								<li>Ici les deux premiers paramètres sont le nom du fichier et l'encodage</li>
+								<li>Le dernier est la fonction de rappel (fonction fléchée anonyme ajout d'es6, syntaxe plus courte et ne lie pas son this)</li>
+								<li>Dans ce cas elle prend en parametre une erreur ou le resultat de l'opération, idiomatique de l'api nodejs </li>
 							</ul>
 						</aside>
 					</section>
@@ -155,25 +135,31 @@
 						<pre>
 							<code data-trim data-noescape>
 								const http = require('http');
-								const port = 8000;
 
 								let server = http.createServer((request, response) => {
 									response.end('Hello world');
 								});
 
-								server.listen(port);
+								server.listen(8000);
 							</code>
 						</pre>
 						<aside class="notes">
-							<p>Un autre exemple avec le module http.
-								On importe le module, on crée un serveur, et on écoute sur le port passé en paramètre.</p>
-							<p>Il est possible pour rendre l'api plus facile à utiliser d'envelopper dans des promesses (bluebird), et d'utiliser async/await (node 7.6+).</p>
+							<h3>autre exemple avec le module http</h3>
+							<p>Pour illustrer le fait que node.js possède une bibliothèque http intégrée qui lui permet de se passer de serveur web</p>
+							<ul>
+								<li>Ici pour chaque requête on execute le callback suivant qui prend un objet requête et reponse qui implementent une interface Writable Stream qui permettent d'interagir aveec eux </li>
+								<li>ici je me contente de terminer la réponse en ecrivant dedans</li>
+								<li>Ensuite le serveur est mis en écoute sur le port passé en passé en paramètre</li>
+							</ul>
 						</aside>
 					</section>
 				</section>
 				<section>
 					<section>
 						<h2>Npm le gestionnaire de paquets</h2>
+						<aside class="notes">
+							<p>Je vais maintenant vous parler de npm qui permet de profiter des nombreux modules, bibliothèques et frameworks existants pour démarrer un projet sans avoir à recoder 'from scratch'</p>
+						</aside>
 					</section>
 					<section>
 						<h3>Le fichier package.json</h3>
@@ -181,6 +167,7 @@
 							<code data-trim data-noescape>
 								{
 									"name": "ledserver",
+									"author": "ChrisSensebe"
 									"version": "0.0.0",
 									"private": true,
 									"scripts": {
@@ -196,17 +183,19 @@
 
 							</code>
 						</pre>
-						<aside class="notes">A la racine d'un projet node on trouve un fichier package.json qui décrit des meta-données, des scripts et les dépendances du projet. Pour la gestion des dépendances node utilise le versioning sémantique (major.minor.patch).
+						<aside class="notes">
+							<p>On trouve à la racine d'un projet un fichier package.json qui décrit des métadonnées sur le projet</p>
 							<ul>
-								<li>version exacte</li>
-								<li>version mineure: ~</li>
-								<li>version majeure: ^</li>
-								<li>n'importe quelle version: $</li>
+								<li>on peut y renseigner</li>
+								<li>le nom, l'auteur, le dépot git du projet ...</li>
+								<li>des scripts</li>
+								<li>les dépendances du projet, les dépendances de dev</li>
+								<li>semver: version exacte, mineure ~, majeure ^ all *</li>
 							</ul>
 						</aside>
 					</section>
 					<section>
-						<h3>Quelques commandes</h3>
+						<h3>La ligne de commande</h3>
 						<pre>
 							<code data-trim data-noescape="">
 								$ npm init
@@ -214,22 +203,23 @@
 						</pre>
 						<pre>
 							<code data-trim data-noescape="">
-								$ npm install
+								$ npm install nomDuModule
 							</code>
 						</pre>
 						<pre>
 							<code data-trim data-noescape>
-								$ npm shrinkwrap
+								$ npm run nomDuscript
 							</code>
 						</pre>
 						<a href="https://docs.npmjs.com/">https://docs.npmjs.com/</a>
 						<aside class="notes">
 							<ul>
 								<li>npm init pour initialiser un fichier package.json</li>
-								<li>npm install pour installer les dépendaces décrites dans le package ou un package passé en paramètre</li>
-								<li>npm shrinkwrap vérouille l'arbre de dépendances</li>
+								<li>npm install pour installer un module, --save, install pour un projet, install globale</li>
+								<li>npm crée un dossier node_modules et y installe les dépendances</li>
+								<li>distribuer un projet : code + package.json</li>
 							</ul>
-							<p>possibilité d'installer un module depuis un dépot git</p>
+							<p>possibilité d'installer un module depuis npm ou un dépot git</p>
 						</aside>
 					</section>
 					<section>
@@ -237,17 +227,12 @@
 						<img src="/img/screenNPM.png" alt="" class="stretch">
 						<a href="https://www.npmjs.com/">https://www.npmjs.com/</a>
 						<aside class="notes">
-							<p>Le site NPM recense les plus de 400000 paquets publiés dans le registre public de npm, la doc de npm ainsi que des services (registres privés)</p>
+							<p>Ici vous avez le site NPM recense les plus de 400000 paquets publiés dans le registre public de npm, ainsi que la doc</p>
 						</aside>
 					</section>
 				</section>
 				<section>
 					<h1>Pour quoi faire</h1>
-				</section>
-				<section>
-					<p>
-						Node.js à été créé afin de développer des applications gourmandes en termes d'entrée/sortie.
-					</p>
 				</section>
 				<section>
 					<section>
@@ -257,33 +242,37 @@
 						<h3>Adapté pour</h3>
 						<ul>
 							<li>Applications web en temps réel</li>
-							<li>Chat</li>
-							<li>Application de monitoring</li>
 							<li>Micro tâches</li>
 							<li>Proxi en facade de différents services</li>
-							<li>API construite sur une base Objet (mongo)</li>
+							<li>API construite sur une base servant du json (CouchDB, Mongo, Postgres</li>
 							<li>Streaming</li>
 						</ul>
 						<aside class="notes">
 							<ul>
-								<li>Toute application gourmande en termes d'I/O, utilisation de websockets</li>
-								<li>Micro taches (aws lambda, fonctions google cloud et azure)</li>
-								<li>I/O performante et capacité de communiquer "facilement" avec une grande variété de protocoles (http, websockets, tcp, udp...)</li>
-								<li>mongo: un seul language et format de données de bout en bout</li>
-								<li>API de streaming incluse de base dans la plateforme</li>
+								<li>Capacité à gérer un grand nombre de requêtes concurentes, integration facile avec les websockets</li>
+								<li>Micro taches, facile a modulariser et à distribuer</li>
+								<li>Capacité d'I/O performante et à communiquer "facilement" avec une grande variété de protocoles (http, websockets, tcp, udp...)</li>
+								<li>le même format de données et modèle dans tout le stack</li>
+								<li>Le même langage (javascript) utilisé coté serveur et coté client</li>
+								<li>Le fait que les requêtes et reponses sont utilisables comme des flux peremt d'interagir avec pendant leur traitement</li>
+								<li>Rendu coté serveur SPA</li>
 							</ul>
 						</aside>
 					</section>
 					<section>
-						<h3>Aussi adapté</h3>
-						<p>Application web coté serveur</p>
+						<h2>Pas un problème</h2>
 						<ul>
-							<li>Un seul langage utilisé</li>
-							<li>Outillage avec npm</li>
-							<li>Rendu coté serveur (single page app)</li>
+							<li>Api stable</li>
+							<li>Système de release avec lts Tout les ans</li>
+							<li>Communautée active</li>
+							<li>Support de l'industrie</li>
+							<li>Support de la plateforme dans les ide</li>
 						</ul>
-						<aside class="notes">
-							<p>lister les avantages de cette approche (cf slide)</p>
+						<aside>
+							<ul>
+								<li>lts support actif de 18 mois + 12 mois de maintenance</li>
+								<li>Fondation node js pour promouvoir et supporter la plateforme, avec pour membres (non exaustif), ibm, intel, microsoft, google </li>
+							</ul>
 						</aside>
 					</section>
 					<section>
@@ -297,14 +286,32 @@
 							<li>CMS</li>
 						</ul>
 						<aside class="notes">
-							<p>Tout ce qui est susceptible de bloquer la boucle d'évènements, le fait que le js est mono thread et peu adapté aux opérations intensives en terme de calcul.</p>
-							<p>traitement A/V, calcul scientifique bibliothèques matures présentes dans d'autre languages (java, python, c...)</p>
-							<p>db relationelle/cms, possible mais outils plus matures dans d'autres languages</p>
+							<ul>
+								<li>L'api basée sur les callbacks, qui amène à du code peu lisible et difficile à maintenir (callback hell ou pyramide of doom)</li>
+								<li>Le choix a été fait pour des raison de performance</li>
+								<li>Wrapper dans des promesses ou utiliser async/await (node 7.6+</li>
+								<li>Tout code bloquant, et le modèle perd de son intéret dans le cadre d'applications gourmandes en cpu</li>
+								<li>embarqué, vm javascript, perte en terme de perf, sauf prototypage</li>
+								<li>traitement A/V, calcul scientifique bibliothèques matures et utilisées dans d'autre languages (java, python, c...)</li>
+								<li>db relationelle/cms, possible mais outils plus matures dans d'autres languages</li>
+							</ul>
 						</aside>
 					</section>
 				</section>
 				<section data-state="ledOff">
 					<section><h2>Écosystème</h2></section>
+					<section>
+						<h3>Outillage javascript</h3>
+						<ul>
+							<li>Webpack</li>
+							<li>Grunt</li>
+							<li>Gulp</li>
+							<li>cli pour react, angular, cordova</li>
+						</ul>
+						<aside class="notes">
+							<p>La quasi totalité des outils javascript utilisent node et npm</p>
+						</aside>
+					</section>
 					<section>
 						<h3>Frameworks web</h3>
 						<ul>
@@ -316,53 +323,36 @@
 						</ul>
 						<aside class="notes">
 							<ul>
-								<li>Express framework "par défaut" de l'écosystème node, avec hapi et koa(async) comme alternatives</li>
-								<li>Meteor démarche d'utiliser le même code coté serveur et client</li>
+								<li>Express framework "standart" pour construire des applications web en node</li>
+								<li>HAPI, alternative à express, KOA generators ou async await</li>
+								<li>Meteor permet d ecrire du code utilisable indiferement coté serveur ou coté client</li>
 								<li>Restify proche d'express, dédié à la réalisation d'API rest</li>
 							</ul>
 						</aside>
 					</section>
 					<section>
-						<h3>Outilage javascript</h3>
-						<ul>
-							<li>Grunt</li>
-							<li>Gulp</li>
-							<li>Webpack</li>
-							<li>Cordova cli</li>
-							<li>Create react app</li>
-							<li>Angular cli</li>
-						</ul>
-						<aside class="notes">
-							<p>La quasi totalité des outils de l'écosystème javascript utilisent node.js.</p>
-						</aside>
-					</section>
-					<section>
-						<h3>Appli desktop</h3>
-						<p>Electron, <a href="https://electron.atom.io/">https://electron.atom.io/</a></p>
+						<h3>Electron</h3>
 						<ul>
 							<li>Slack</li>
 							<li>Atom</li>
 							<li>Visual studio code</li>
 							<li>Postman</li>
 						</ul>
+						<p><a href="https://electron.atom.io/">https://electron.atom.io/</a></p>
 						<aside class="notes">
 							<p>Electron framework utilisant node et chromuim dédié à la réalisation d'applications de bureau, exemples: Slack, Atom, Visual studio code, Postman. Moins performants que d'autres languages mais permet d'utiliser les technos/compétences web pour réaliser une appli de bureau</p>
 						</aside>
 					</section>
 					<section>
-						<h3>ET plein d'autres</h3>
+						<h3>En vrac</h3>
 						<ul>
 							<li>socket.io</li>
-							<li>Mongoose</li>
-							<li>Forever</li>
 							<li>PM2</li>
 							<li>Johnny-Five</li>
 						</ul>
 						<aside class="notes">
 							<ul>
 								<li>socket.io -> websockets</li>
-								<li>Mongoose odm pour mongoDb (validation, casting, requêtes...)</li>
-								<li>Forever, permet de garder un script actif</li>
 								<li>PM2: monitoring, relancer un script, clusters, load balancing</li>
 								<li>Plateforme pour la robotique et internet of things, plus un outil de prototypage, mais permet d'utiliser des compétence de dev web pour communiquer avec des objets</li>
 							</ul>
@@ -373,15 +363,26 @@
 					<section data-state="ledOff">
 						<h2>Exemple avec websocket + johnny-Five</h2>
 						<aside class="notes">
-							<p>Un exemple de serveur node utilisant des websockets et johnny-five</p>
-							<p>La présentation est reliée par websocket avec un serveur express js qui utilise johnny-five branché sur un arduino avec une led RGB</p>
+							<p>Un exemple d'utilisation de websockets et de johnny-five (plateforme pour la robotique et l'iot)</p>
+							<p>j'ai relié la présentation par websocket avec un serveur express js qui controlle une led RGB</p>
 						</aside>
 					</section>
 					<section data-state="ledWhite">
 						<h1>Led ON</h1>
 						<pre>
 							<code data-trim data-noescape>
-								led.turnOn();
+								const five = require("johnny-five");
+								const board = new five.Board();
+
+								board.on('ready', () => {
+									let led = new five.led.RGB({
+										pins: {
+											red: 6,
+											green: 5,
+											blue: 3,
+										}
+									});
+								};
 							</code>
 						</pre>
 						<aside class="notes">
@@ -392,7 +393,7 @@
 						<h1>Rouge</h1>
 						<pre>
 							<code data-trim data-noescape>
-								led.setColor({
+								led.color({
 									red: 255,
 									green: 0,
 									blue: 0
@@ -407,7 +408,7 @@
 						<h1>Vert</h1>
 						<pre>
 							<code data-trim data-noescape>
-								led.setColor({
+								led.color({
 									red: 0,
 									green: 255,
 									blue: 0
@@ -419,7 +420,7 @@
 						<h1>Bleu</h1>
 						<pre>
 							<code data-trim data-noescape>
-								led.setColor({
+								led.color({
 									red: 0,
 									green: 0,
 									blue: 255
@@ -431,6 +432,18 @@
 				<section data-state="ledOff">
 					<section>
 						<h1>Pour s'y mettre</h1>
+					</section>
+					<section>
+						<h2>Installation</h2>
+						<img src="/img/Node%20install.png" alt="" class="stretch">
+						<p>Récupération d'un installeur ou des fichiers exécutables depuis le site officiel</p>
+						<a href="https://nodejs.org/en/download/">https://nodejs.org/en/download/</a>
+					</section>
+					<section>
+						<h2>Utilisation de nvm</h2>
+						<img src="/img/nvm.png" alt="" class="stretch">
+						<a href="https://github.com/creationix/nvm">https://github.com/creationix/nvm</a>
+						<aside class="notes">Nvm est un outil en ligne de commande qui permet d'installer et de gérer plusieurs versions de node.js sur un même système.</aside>
 					</section>
 					<section>
 						<ul>
@@ -447,7 +460,7 @@
 								<li>Un article qui est une bonne introduction</li>
 								<li>Des cours sur codeschool node, express, mongo (payant)</li>
 								<li>Cours en français sur openClassroom</li>
-								<li>Série d'articles de blog sur risinstack, qui vont de l'intro a node au déployement en production</li>
+								<li>Série d'articles de blog sur risingstack, qui vont de l'intro a node au déployement en production</li>
 							</ul>
 						</aside>
 					</section>
