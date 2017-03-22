@@ -33,10 +33,10 @@
 						<li>Développeur web</li>
 						<li>Je travaille à FMGS concept</li>
 						<li>Je prépare un titre de concepteur developeur informatique au CEFIM</li>
-						<li>J'ai en grande partie appris a programmer en utilisant node.js</li>
 					</ul>
 					<aside class="notes">
-						<p>je vais vous présenter la plateforme, son fonctionnement, ce qu'on peut faire avec et quelques ressources qui m'on servi à apprendre à m'en servir</p>
+						<p>J'ai appris à programmer ces dernières années, en grande partie avec node.js</p>
+						<p>Et je vais vous présenter la plateforme, son fonctionnement, ce qu'on peut faire avec et quelques ressources qui m'on servi à apprendre à m'en servir</p>
 					</aside>
 				</section>
 				<section>
@@ -45,21 +45,21 @@
 				<section>
 					<p>Plateforme logicielle libre, permettant d'éxécuter du javascript coté serveur.</p>
 					<img src="/img/Ryan_Dahl.jpg" alt="" class="stretch">
-					<p>crée en 2009, par Ryan Dahl, en critique à l'incapacité d'un serveur apache à gérer un très grand nombre de requêtes concurentes et à son modèle d'i/o dit bloquant. Dans le but de créer une plateforme d'i/o stable et performante.</p>
+					<p>crée en 2009, par Ryan Dahl, en critique au modèle utilisé d'I/O utilisé par la plupart des serveurs web et de leur incapacité à gérer un très grand nombre de requêtes concurentes (au dela de 10000).</p>
 				</section>
 				<section>
 					<h2>I/O bloquante</h2>
 					<img src="/img/blockingIO.jpg" alt="" class="stretch">
 					<aside class="notes">
-						Ici on le modèle de code sequenciel dit bloquant, toute opération bloquante (appel à une base de donnée, au réseau bloque l'exécution du code sité après).
-						La plupart du temps ce problème est contourné en créant un nouveau thread pour chaque requête, ce qui a un coût non négligeable.
+						Ici on le modèle "classique" de code séquenciel dit bloquant, toute opération bloquante (appel à une base de donnée, au réseau bloque l'exécution du code sité après).
+						La plupart du temps ce problème est contourné en créant un nouveau thread pour chaque requête, ce qui a un coût non négligeable, surtout pour des taches courtes.
 					</aside>
 				</section>
 				<section>
 					<h2>I/O non bloquante</h2>
 					<img src="/img/nonBlockingIO.jpg" alt="" class="stretch">
 					<aside class="notes">
-						Dans le cas de node.js, on enregistre l'opération à effectuer, sa résolution est déléguée à un pool de threads deja instanciés, une fois celle-ci effectuée une fonction de rappel est appellée pour prendre en charge la suite des opérations. le thread principal reste libre, ce qui permet de prendre en charge un nombre de requêtes concurentes plus élevé.
+						Dans le cas de node.js, on enregistre l'opération à effectuer, sa résolution est déléguée à un pool de threads  pré-instanciés, une fois celle-ci effectuée une fonction de rappel est appellée pour prendre en charge la suite des opérations. le thread principal reste libre, ce qui permet de prendre en charge un nombre de requêtes concurentes plus élevé.
 					</aside>
 				</section>
 				<section>
@@ -85,7 +85,7 @@
 					<h1>Comment ça marche</h1>
 				</section>
 				<section>
-					<p>De base node fourni une API d'assez bas niveau, avec des modules pour interagir avec le système de fichiers, le reseau, la manipulation de données binaires, des fonctions cryptographiques...</p>
+					<p>De base node fourni une API d'assez bas niveau, qui permet d'interagir avec le système de fichiers, le reseau, la manipulation de données binaires, des fonctions cryptographiques...</p>
 					<p>Qu'il est possible d'étendre via des add-on écris en C ou C++</p>
 				</section>
 				<section>
@@ -94,7 +94,7 @@
 						<img src="/img/nonBlockingIO.jpg" alt="" class="stretch">
 						<aside class="notes">
 							<p>Pour rappel le mode de fonctionnement de node.js</p>
-							<p>Le programme javascript s'exéute sur un seul thread et pour ne pas bloquer la boucle d'évènements, toute fonction qui réalise une opération d'i/o doit utiliser un callback afin de ne pas bloquer le thread principal.</p>
+							<p>Le programme javascript s'exéute sur un seul thread et pour ne pas bloquer la boucle d'évènements, on utilise un mode de programmation évènementielle en utilisant des fonctions de rappel (callbacks).</p>
 						</aside>
 					</section>
 				</section>
@@ -276,8 +276,9 @@
 						</aside>
 					</section>
 					<section>
-						<h3>moins adapté / pas adapté</h3>
+						<h3>moins adapté / défauts</h3>
 						<ul>
+							<li>API basée sur les callbacks</li>
 							<li>Applications gourmandes en temps de calcul</li>
 							<li>Calcul scientifique</li>
 							<li>Traitement audio/video</li>
@@ -445,25 +446,25 @@
 						<a href="https://github.com/creationix/nvm">https://github.com/creationix/nvm</a>
 						<aside class="notes">Nvm est un outil en ligne de commande qui permet d'installer et de gérer plusieurs versions de node.js sur un même système.</aside>
 					</section>
-					<section>
+				</section>
+				<section>
+					<ul>
+						<li>Stackoverflow <a href="http://stackoverflow.com/questions/2353818/how-do-i-get-started-with-node-js">http://stackoverflow.com/questions/2353818/how-do-i-get-started-with-node-js</a></li>
+						<li>Page github <a href="https://github.com/maxogden/art-of-node/#the-art-of-node">https://github.com/maxogden/art-of-node/#the-art-of-node</a></li>
+						<li>Nodeschool <a href="https://nodeschool.io/">https://nodeschool.io/</a></li>
+						<li>CodeSchool <a href="https://www.codeschool.com/">https://www.codeschool.com/</a></li>
+						<li>OpenClassRooms <a href="https://openclassrooms.com/courses/des-applications-ultra-rapides-avec-node-js">https://openclassrooms.com/courses/des-applications-ultra-rapides-avec-node-js</a></li>
+						<li>Risingstack <a href="https://blog.risingstack.com/node-hero-tutorial-getting-started-with-node-js/">https://blog.risingstack.com/node-hero-tutorial-getting-started-with-node-js/</a></li>
+					</ul>
+					<aside class="notes">
 						<ul>
-							<li>Stackoverflow <a href="http://stackoverflow.com/questions/2353818/how-do-i-get-started-with-node-js">http://stackoverflow.com/questions/2353818/how-do-i-get-started-with-node-js</a></li>
-							<li>Page github <a href="https://github.com/maxogden/art-of-node/#the-art-of-node">https://github.com/maxogden/art-of-node/#the-art-of-node</a></li>
-							<li>Nodeschool <a href="https://nodeschool.io/">https://nodeschool.io/</a></li>
-							<li>CodeSchool <a href="https://www.codeschool.com/">https://www.codeschool.com/</a></li>
-							<li>OpenClassRooms <a href="https://openclassrooms.com/courses/des-applications-ultra-rapides-avec-node-js">https://openclassrooms.com/courses/des-applications-ultra-rapides-avec-node-js</a></li>
-							<li>Risingstack <a href="https://blog.risingstack.com/node-hero-tutorial-getting-started-with-node-js/">https://blog.risingstack.com/node-hero-tutorial-getting-started-with-node-js/</a></li>
+							<li>Une page stackoverflow qui rescense des ressources pour commencer avec node.js</li>
+							<li>Un article qui est une bonne introduction</li>
+							<li>Des cours sur codeschool node, express, mongo (payant)</li>
+							<li>Cours en français sur openClassroom</li>
+							<li>Série d'articles de blog sur risingstack, qui vont de l'intro a node au déployement en production</li>
 						</ul>
-						<aside class="notes">
-							<ul>
-								<li>Une page stackoverflow qui rescense des ressources pour commencer avec node.js</li>
-								<li>Un article qui est une bonne introduction</li>
-								<li>Des cours sur codeschool node, express, mongo (payant)</li>
-								<li>Cours en français sur openClassroom</li>
-								<li>Série d'articles de blog sur risingstack, qui vont de l'intro a node au déployement en production</li>
-							</ul>
-						</aside>
-					</section>
+					</aside>
 				</section>
 				<section>
 					<h1>Des questions?</h1>
