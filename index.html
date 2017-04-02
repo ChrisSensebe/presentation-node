@@ -44,12 +44,12 @@
 				</section>
 				<section>
 					<p>Plateforme logicielle libre, permettant d'éxécuter du javascript coté serveur.</p>
-					<img src="/img/ryan-dahl.jpg" alt="" class="stretch">
+					<img src="img/ryan-dahl.jpg" alt="" class="stretch">
 					<p>crée en 2009, par Ryan Dahl, en critique au modèle utilisé d'I/O utilisé par la plupart des serveurs web et de leur incapacité à gérer un très grand nombre de requêtes concurentes (au dela de 10000).</p>
 				</section>
 				<section>
 					<h2>I/O bloquante</h2>
-					<img src="/img/blocking-io.jpg" alt="" class="stretch">
+					<img src="img/blocking-io.jpg" alt="" class="stretch">
 					<aside class="notes">
 						Ici on le modèle "classique" de code séquenciel dit bloquant, toute opération bloquante (appel à une base de donnée, au réseau bloque l'exécution du code sité après).
 						La plupart du temps ce problème est contourné en créant un nouveau thread pour chaque requête, ce qui a un coût non négligeable, surtout pour des taches courtes.
@@ -57,7 +57,7 @@
 				</section>
 				<section>
 					<h2>I/O non bloquante</h2>
-					<img src="/img/non-blocking-io.jpg" alt="" class="stretch">
+					<img src="img/non-blocking-io.jpg" alt="" class="stretch">
 					<aside class="notes">
 						Dans le cas de node.js, on enregistre l'opération à effectuer, sa résolution est déléguée à un pool de threads  pré-instanciés, une fois celle-ci effectuée une fonction de rappel est appellée pour prendre en charge la suite des opérations. le thread principal reste libre, ce qui permet de prendre en charge un nombre de requêtes concurentes plus élevé.
 					</aside>
@@ -65,15 +65,15 @@
 				<section>
 					<section><h2>Node.js est construit en combinant</h2></section>
 					<section>
-						<img src="/img/v8-logo.png" alt="" class="stretch">
+						<img src="img/v8-logo.png" alt="" class="stretch">
 						<p>Le moteur javascript v8 de chrome</p>
 					</section>
 					<section>
-						<img src="/img/libuv-logo.png" alt="" class="stretch">
+						<img src="img/libuv-logo.png" alt="" class="stretch">
 						<p>Libuv une bibliothèque C multi plateforme chargée de la gestion de la boucle d'évènements, du pool de threads et de la résolution asynchrone des opérations d'I/O.</p>
 					</section>
 					<section>
-						<img src="/img/npm-logo.png" alt="" class="stretch">
+						<img src="img/npm-logo.png" alt="" class="stretch">
 						<p>Node.js intègre un gestionnaire de paquets NPM qui permet de consommer et de distribuer les modules javascripts présents sur ses registres</p>
 					</section>
 				</section>
@@ -91,7 +91,7 @@
 				<section>
 					<section>
 						<h2>Fonctionnement</h2>
-						<img src="/img/non-blocking-io.jpg" alt="" class="stretch">
+						<img src="img/non-blocking-io.jpg" alt="" class="stretch">
 						<aside class="notes">
 							<p>Pour rappel le mode de fonctionnement de node.js</p>
 							<p>Le programme javascript s'exéute sur un seul thread et pour ne pas bloquer la boucle d'évènements, on utilise un mode de programmation évènementielle en utilisant des fonctions de rappel (callbacks).</p>
@@ -224,7 +224,7 @@
 					</section>
 					<section>
 						<h3>Le site NPM</h3>
-						<img src="/img/screen-npm.png" alt="" class="stretch">
+						<img src="img/screen-npm.png" alt="" class="stretch">
 						<a href="https://www.npmjs.com/">https://www.npmjs.com/</a>
 						<aside class="notes">
 							<p>Ici vous avez le site NPM recense les plus de 400000 paquets publiés dans le registre public de npm, ainsi que la doc</p>
@@ -436,13 +436,13 @@
 					</section>
 					<section>
 						<h2>Installation</h2>
-						<img src="/img/Node%20install.png" alt="" class="stretch">
+						<img src="img/Node%20install.png" alt="" class="stretch">
 						<p>Récupération d'un installeur ou des fichiers exécutables depuis le site officiel</p>
 						<a href="https://nodejs.org/en/download/">https://nodejs.org/en/download/</a>
 					</section>
 					<section>
 						<h2>Utilisation de nvm</h2>
-						<img src="/img/nvm.png" alt="" class="stretch">
+						<img src="img/nvm.png" alt="" class="stretch">
 						<a href="https://github.com/creationix/nvm">https://github.com/creationix/nvm</a>
 						<aside class="notes">Nvm est un outil en ligne de commande qui permet d'installer et de gérer plusieurs versions de node.js sur un même système.</aside>
 					</section>
