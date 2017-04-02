@@ -480,14 +480,15 @@
 		<script src="js/socket.io.js"></script>
 
 		<script>
-			// connect to webSocket server
+			// connect to webSocket server, commented for github page
+			/*
 			const socket = io('http://localhost:4000');
 			const ledColors = {
 			    white: {red: 255, green: 255, blue: 255},
 			    red: {red: 255, green: 0, blue: 0},
 				green: {red: 0, green: 255, blue: 0},
 				blue: {red: 0, green: 0, blue: 255}
-			};
+			};*/
 			// More info https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
 				history: true,
@@ -500,7 +501,8 @@
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
 				]
 			});
-			// listen to leds events and emit them to the webSocket server
+			// listen to leds events and emit them to the webSocket server, commented for github page
+			/*
 			Reveal.addEventListener('ledWhite', () => {
                 socket.emit('turnOn', {color : ledColors.white});
 			});
@@ -519,7 +521,7 @@
 
             Reveal.addEventListener('ledOff', () => {
                	socket.emit('turnOff', {});
-			});
+			});*/
 
 		</script>
 	</body>
